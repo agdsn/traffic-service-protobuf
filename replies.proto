@@ -1,0 +1,40 @@
+package replies;
+
+message StatisticSlice
+{
+    required request.Statistic.DataInterval data_interval = 1;
+    required uint64 sum_traffic_in = 2;
+    required uint64 sum_traffic_out = 3;
+}
+
+message Statistic
+{
+    required string address = 1;
+    required request.TimeRange available_range = 2;
+    required request.Statistic.DataInterval data_interval = 3;
+    required uint64 sum_traffic_in = 4;
+    required uint64 sum_traffic_out = 5;
+    repeated StatisticSlice = 6;
+}
+
+message SummaryEntry
+{
+    required string address = 1;
+    required uint64 sum_traffic_in = 2;
+    required uint64 sum_traffic_out = 3;
+}
+
+message Summary
+{
+    repeated SummaryEntry = 1;
+}
+
+message Reply
+{
+    required uint32 version = 1;
+    
+    oneof Payload {
+        Statistic statistic = 2;
+        Summary summary = 3;
+    }
+}
