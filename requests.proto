@@ -1,0 +1,40 @@
+package request;
+
+
+message TimeRange
+{
+	required uint64 start = 1;
+	required uint64 end = 2;
+}
+
+
+message Statistic
+{
+	enum DataInterval {
+		DAY = 0;
+		HOUR = 1;
+		DETAIL = 2;
+	}
+
+	required TimeRange range = 1;
+	required string address = 2;
+	required DataInterval data_interval = 3;	
+}
+
+
+message Summary
+{
+	required TimeRange range = 1;
+	repeated string addresses = 2;
+}
+
+
+message Request
+{
+	required uint32 version = 1;
+
+	oneof Payload {
+		Statistic statistic = 2;
+		Summary summary = 3;
+	}
+}
