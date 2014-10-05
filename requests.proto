@@ -18,7 +18,7 @@ message Statistic
 
 	required TimeRange range = 1;
 	required string address = 2;
-	required DataInterval data_interval = 3;	
+	optional DataInterval data_interval = 3;
 }
 
 
