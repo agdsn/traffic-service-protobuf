@@ -29,6 +29,12 @@ message Summary
     repeated SummaryEntry = 1;
 }
 
+message Error
+{
+    required uint32 code = 1;
+    optional string reason = 2;
+}
+
 message Reply
 {
     required uint32 version = 1;
@@ -36,5 +42,6 @@ message Reply
     oneof Payload {
         Statistic statistic = 2;
         Summary summary = 3;
+        Error error = 4;
     }
 }
