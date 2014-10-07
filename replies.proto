@@ -12,8 +12,12 @@ message Statistic
     required string address = 1;
     required request.TimeRange available_range = 2;
     required request.Statistic.DataInterval data_interval = 3;
-    required uint64 sum_traffic_in = 4;
-    required uint64 sum_traffic_out = 5;
+
+    // if data is not available in minimal step (1)
+    optional uint32 data_interval_step = 4;
+
+    required uint64 sum_traffic_in = 5;
+    required uint64 sum_traffic_out = 6;
     repeated StatisticSlice = 6;
 }
 
