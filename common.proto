@@ -1,0 +1,8 @@
+package common;
+
+
+message TimeRange
+{
+	required uint64 start = 1;
+	required uint64 end = 2;
+}

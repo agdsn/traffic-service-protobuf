@@ -1,4 +1,4 @@
-import "requests.proto";
+import "common.proto";
 
 package replies;
 
@@ -12,7 +12,7 @@ message StatisticSlice
 message Statistic
 {
     // if not the whole requested time range is available
-    optional requests.TimeRange available_range = 1;
+    optional common.TimeRange available_range = 2;
 
     // if data is not available in minimal step (1)
     optional uint32 data_interval_step = 2;

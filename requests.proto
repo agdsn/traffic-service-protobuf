@@ -1,11 +1,5 @@
+import "common.proto";
 package requests;
-
-
-message TimeRange
-{
-	required uint64 start = 1;
-	required uint64 end = 2;
-}
 
 
 message Statistic
@@ -16,7 +10,7 @@ message Statistic
 		DETAIL = 2;
 	}
 
-	required TimeRange range = 1;
+	required common.TimeRange range = 1;
 	required string address = 2;
 	optional DataInterval data_interval = 3;
 }
@@ -24,7 +18,7 @@ message Statistic
 
 message Summary
 {
-	required TimeRange range = 1;
+	required common.TimeRange range = 1;
 	repeated string addresses = 2;
 }
 
