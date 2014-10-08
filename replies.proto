@@ -12,7 +12,7 @@ message StatisticSlice
 message Statistic
 {
     // if not the whole requested time range is available
-    optional request.TimeRange available_range = 1;
+    optional requests.TimeRange available_range = 1;
 
     // if data is not available in minimal step (1)
     optional uint32 data_interval_step = 2;
