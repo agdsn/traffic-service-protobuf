@@ -32,3 +32,5 @@ message Request
 		Summary summary = 3;
 	}
 }
+
+// vim: set noexpandtab:ts=8:sw=8
