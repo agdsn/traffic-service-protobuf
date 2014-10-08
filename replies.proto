@@ -20,7 +20,7 @@ message Statistic
     required uint64 sum_traffic_out = 4;
 
     // set of slices, prepared in intervals
-    repeated StatisticSlice = 5;
+    repeated StatisticSlice slices = 5;
 }
 
 message SummaryEntry
@@ -32,7 +32,7 @@ message SummaryEntry
 
 message Summary
 {
-    repeated SummaryEntry = 1;
+    repeated SummaryEntry data = 1;
 }
 
 message Error
