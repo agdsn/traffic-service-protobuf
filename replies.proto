@@ -1,0 +1,53 @@
+package replies;
+
+message StatisticSlice
+{
+    required uint64 timestamp_begin = 1;
+    required uint64 traffic_in = 2;
+    required uint64 traffic_out = 3;
+}
+
+message Statistic
+{
+    // if not the whole requested time range is available
+    optional request.TimeRange available_range = 1;
+
+    // if data is not available in minimal step (1)
+    optional uint32 data_interval_step = 2;
+
+    // sum of the whole range
+    required uint64 sum_traffic_in = 3;
+    required uint64 sum_traffic_out = 4;
+
+    // set of slices, prepared in intervals
+    repeated StatisticSlice = 5;
+}
+
+message SummaryEntry
+{
+    required string address = 1;
+    required uint64 sum_traffic_in = 2;
+    required uint64 sum_traffic_out = 3;
+}
+
+message Summary
+{
+    repeated SummaryEntry = 1;
+}
+
+message Error
+{
+    required uint32 code = 1;
+    optional string reason = 2;
+}
+
+message Reply
+{
+    required uint32 version = 1;
+    
+    oneof Payload {
+        Statistic statistic = 2;
+        Summary summary = 3;
+        Error error = 4;
+    }
+}
