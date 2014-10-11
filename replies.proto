@@ -5,7 +5,7 @@ package replies;
 
 message StatisticSlice
 {
-	required uint64 timestamp_begin = 1;
+	required uint64 timestamp = 1;
 	required uint64 traffic_in = 2;
 	required uint64 traffic_out = 3;
 }
