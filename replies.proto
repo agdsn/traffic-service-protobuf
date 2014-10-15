@@ -24,7 +24,7 @@ message Statistic
 	required uint64 sum_traffic_out = 4;
 
 	// set of slices, prepared in intervals
-	repeated StatisticSlice slices = 5;
+	repeated StatisticSlice slice = 5;
 }
 
 
